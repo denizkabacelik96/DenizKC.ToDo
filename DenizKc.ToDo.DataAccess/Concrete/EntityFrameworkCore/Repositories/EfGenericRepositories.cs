@@ -8,7 +8,7 @@ using System.Text;
 
 namespace DenizKc.ToDo.DataAccess.Concrete.EntityFrameworkCore.Repositories
 {
-    public class EfGenericRepositories<Tablo> : IGenericDal<Tablo> where Tablo:class,ITablo,new()
+    public class EfGenericRepositories<Tablo> : IGenericDal<Tablo> where Tablo : class, ITablo, new()
     {
         public List<Tablo> GetirHepsi()
         {
@@ -44,3 +44,4 @@ namespace DenizKc.ToDo.DataAccess.Concrete.EntityFrameworkCore.Repositories
             context.SaveChanges();
         }
     }
+}

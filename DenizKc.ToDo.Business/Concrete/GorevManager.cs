@@ -8,35 +8,35 @@ using System.Text;
 
 namespace DenizKc.ToDo.Business.Concrete
 {
-   public  class CalismaManager:ICalismaService
+   public  class GorevManager:IGorevService
     {
 
-        private readonly EFCalismaRepositories efCalismaRepositories;
-        public CalismaManager()
+        private readonly EFGorevRepositories efCalismaRepositories;
+        public GorevManager()
         {
-            efCalismaRepositories = new EFCalismaRepositories();
+            efCalismaRepositories = new EFGorevRepositories();
         }
-        public List<Calisma> GetirHepsi()
+        public List<Gorev> GetirHepsi()
         {
             return efCalismaRepositories.GetirHepsi();
         }
 
-        public Calisma GetirIdIle(int id)
+        public Gorev GetirIdIle(int id)
         {
             return efCalismaRepositories.GetirIdIle(id);
         }
 
-        public void Guncelle(Calisma tablo)
+        public void Guncelle(Gorev tablo)
         {
             efCalismaRepositories.Guncelle(tablo);
         }
 
-        public void Kaydet(Calisma tablo)
+        public void Kaydet(Gorev tablo)
         {
             efCalismaRepositories.Kaydet(tablo);
         }
 
-        public void Sil(Calisma tablo)
+        public void Sil(Gorev tablo)
         {
             efCalismaRepositories.Sil(tablo);
         }

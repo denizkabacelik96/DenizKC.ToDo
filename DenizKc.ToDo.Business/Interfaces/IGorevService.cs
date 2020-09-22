@@ -5,7 +5,7 @@ using System.Text;
 
 namespace DenizKc.ToDo.Business.Interfaces
 {
-   public interface ICalismaService:IGenericService<Calisma>
+   public interface IGorevService:IGenericService<Gorev>
     {
     }
 }

@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace DenizKC.ToDo.Entities.Concrete
 {
-    public class Calisma : ITablo
+    public class Gorev : ITablo
     {
 
 
@@ -18,7 +18,7 @@ namespace DenizKC.ToDo.Entities.Concrete
         public bool Durum { get; set; }
         public DateTime OlusturulmaTarih { get; set; }
 
-        public int KullaniciId { get; set; }
-        public Kullanici Kullanici { get; set; }
+        public AppUser AppUser { get; set; }
+        public int? AppUserId { get; set; }
     }
 }

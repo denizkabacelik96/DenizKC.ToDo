@@ -8,9 +8,9 @@ using System.Text;
 
 namespace DenizKc.ToDo.DataAccess.Concrete.EntityFrameworkCore.Mapping
 {
-    public class CalismaMap : IEntityTypeConfiguration<Calisma>
+    public class GorevMap : IEntityTypeConfiguration<Gorev>
     {
-        public void Configure(EntityTypeBuilder<Calisma> builder)
+        public void Configure(EntityTypeBuilder<Gorev> builder)
         {
             builder.HasKey(I=>I.Id);
             builder.Property(I => I.Id).UseIdentityColumn();

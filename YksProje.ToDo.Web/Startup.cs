@@ -34,7 +34,7 @@ namespace YksProje.ToDo.Web
             {
                 endpoints.MapControllerRoute(
                     name:"default",
-                    pattern:"{controller}/{action}"
+                    pattern:"{controller=Home}/{action=Index}"
                     
                     );
             });

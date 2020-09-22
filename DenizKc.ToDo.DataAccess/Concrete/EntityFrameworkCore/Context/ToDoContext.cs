@@ -1,5 +1,6 @@
 ﻿using DenizKc.ToDo.DataAccess.Concrete.EntityFrameworkCore.Mapping;
 using DenizKC.ToDo.Entities.Concrete;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -8,19 +9,21 @@ using System.Xml.Schema;
 
 namespace DenizKc.ToDo.DataAccess.Concrete.EntityFrameworkCore.Context
 {
-    public class ToDoContext:DbContext
+    public class ToDoContext:IdentityDbContext<AppUser,AppRole,int>
     {
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer("Server=DESKTOP-KDK0AO7;DataBase=TODO2;Integrated Security=True");
+            base.OnConfiguring(optionsBuilder);
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.ApplyConfiguration(new KullaniciMap());
-            modelBuilder.ApplyConfiguration(new CalismaMap());
+
+            modelBuilder.ApplyConfiguration(new GorevMap());
+            base.OnModelCreating(modelBuilder);
         }
-        public DbSet<Kullanici> Kullanicilar { get; set; }
-        public DbSet<Calisma> Calismalar { get; set; }
+       
+        public DbSet<Gorev> Gorevler { get; set; }
     }
 }
