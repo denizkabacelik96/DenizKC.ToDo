@@ -1,5 +1,6 @@
 ﻿using DenizKC.ToDo.Entities.Interfaces;
 using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -18,7 +19,14 @@ namespace DenizKC.ToDo.Entities.Concrete
         public bool Durum { get; set; }
         public DateTime OlusturulmaTarih { get; set; }
 
+
+        public int AciliyetId { get; set; }
+        public Aciliyet Aciliyet{ get; set; }
         public AppUser AppUser { get; set; }
         public int? AppUserId { get; set; }
+        public List<Rapor>  Raporlar { get; set; }
+
+
+
     }
 }

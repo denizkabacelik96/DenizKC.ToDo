@@ -16,6 +16,7 @@ namespace DenizKc.ToDo.DataAccess.Concrete.EntityFrameworkCore.Mapping
             builder.Property(I => I.Id).UseIdentityColumn();
             builder.Property(I => I.Ad).HasMaxLength(200);
             builder.Property(I => I.Aciklama).HasColumnType("ntext");
+            builder.HasOne(I => I.Aciliyet).WithMany(I => I.Gorevler).HasForeignKey(I => I.AciliyetId);
         }
     }
 }

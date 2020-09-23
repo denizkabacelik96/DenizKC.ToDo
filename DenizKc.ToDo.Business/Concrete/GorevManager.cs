@@ -11,34 +11,34 @@ namespace DenizKc.ToDo.Business.Concrete
    public  class GorevManager:IGorevService
     {
 
-        private readonly EFGorevRepositories efCalismaRepositories;
-        public GorevManager()
+        private readonly IGorevDal _gorevDal;
+        public GorevManager(IGorevDal gorevDal)
         {
-            efCalismaRepositories = new EFGorevRepositories();
+            _gorevDal = gorevDal;
         }
         public List<Gorev> GetirHepsi()
         {
-            return efCalismaRepositories.GetirHepsi();
+            return _gorevDal.GetirHepsi();
         }
 
         public Gorev GetirIdIle(int id)
         {
-            return efCalismaRepositories.GetirIdIle(id);
+            return _gorevDal.GetirIdIle(id);
         }
 
         public void Guncelle(Gorev tablo)
         {
-            efCalismaRepositories.Guncelle(tablo);
+            _gorevDal.Guncelle(tablo);
         }
 
         public void Kaydet(Gorev tablo)
         {
-            efCalismaRepositories.Kaydet(tablo);
+            _gorevDal.Kaydet(tablo);
         }
 
         public void Sil(Gorev tablo)
         {
-            efCalismaRepositories.Sil(tablo);
+            _gorevDal.Sil(tablo);
         }
     }
 }

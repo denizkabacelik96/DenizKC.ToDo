@@ -21,9 +21,16 @@ namespace DenizKc.ToDo.DataAccess.Concrete.EntityFrameworkCore.Context
         {
 
             modelBuilder.ApplyConfiguration(new GorevMap());
+            modelBuilder.ApplyConfiguration(new AciliyetMap());
+      
+            modelBuilder.ApplyConfiguration(new RaporMap());
+            modelBuilder.ApplyConfiguration(new AppUserMapping());
+
             base.OnModelCreating(modelBuilder);
         }
        
         public DbSet<Gorev> Gorevler { get; set; }
+        public DbSet<Aciliyet> Aciliyetler { get; set; }
+        public DbSet<Rapor> Raporlar { get; set; }
     }
 }

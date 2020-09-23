@@ -4,14 +4,16 @@ using DenizKc.ToDo.DataAccess.Concrete.EntityFrameworkCore.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace DenizKc.ToDo.DataAccess.Migrations
 {
     [DbContext(typeof(ToDoContext))]
-    partial class ToDoContextModelSnapshot : ModelSnapshot
+    [Migration("20200922184623_CreateTableAciliyet")]
+    partial class CreateTableAciliyet
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -27,8 +29,7 @@ namespace DenizKc.ToDo.DataAccess.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Tanim")
-                        .HasColumnType("nvarchar(100)")
-                        .HasMaxLength(100);
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
@@ -92,8 +93,7 @@ namespace DenizKc.ToDo.DataAccess.Migrations
                         .HasColumnType("datetimeoffset");
 
                     b.Property<string>("Name")
-                        .HasColumnType("nvarchar(100)")
-                        .HasMaxLength(100);
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("NormalizedEmail")
                         .HasColumnType("nvarchar(256)")
@@ -116,8 +116,7 @@ namespace DenizKc.ToDo.DataAccess.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Surname")
-                        .HasColumnType("nvarchar(100)")
-                        .HasMaxLength(100);
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("TwoFactorEnabled")
                         .HasColumnType("bit");
@@ -174,33 +173,6 @@ namespace DenizKc.ToDo.DataAccess.Migrations
                     b.HasIndex("AppUserId");
 
                     b.ToTable("Gorevler");
-                });
-
-            modelBuilder.Entity("DenizKC.ToDo.Entities.Concrete.Rapor", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:IdentityIncrement", 1)
-                        .HasAnnotation("SqlServer:IdentitySeed", 1)
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Detay")
-                        .HasColumnType("ntext");
-
-                    b.Property<int>("GorevId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Tanim")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(100)")
-                        .HasMaxLength(100);
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("GorevId");
-
-                    b.ToTable("Raporlar");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<int>", b =>
@@ -314,17 +286,7 @@ namespace DenizKc.ToDo.DataAccess.Migrations
 
                     b.HasOne("DenizKC.ToDo.Entities.Concrete.AppUser", "AppUser")
                         .WithMany("Gorevler")
-                        .HasForeignKey("AppUserId")
-                        .OnDelete(DeleteBehavior.SetNull);
-                });
-
-            modelBuilder.Entity("DenizKC.ToDo.Entities.Concrete.Rapor", b =>
-                {
-                    b.HasOne("DenizKC.ToDo.Entities.Concrete.Gorev", "Gorev")
-                        .WithMany("Raporlar")
-                        .HasForeignKey("GorevId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("AppUserId");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<int>", b =>
